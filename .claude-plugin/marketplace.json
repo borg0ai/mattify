@@ -2,14 +2,14 @@
   "name": "mattpocock",
   "owner": {
     "name": "Matt Pocock",
-    "url": "https://www.aihero.dev"
+    "url": "https://www.systembug.me"
   },
-  "description": "Matt Pocock's skills for real engineering, as an installable Claude Code plugin.",
+  "description": "Mattify Skills for real engineering, as an installable Claude Code plugin.",
   "plugins": [
     {
-      "name": "mattpocock-skills",
+      "name": "mattify-skills",
       "source": "./",
-      "description": "Matt Pocock's agent skills for real engineering (grilling, spec/ticket flows, TDD, code review, domain modelling and more).",
+      "description": "Mattify Skills for real engineering (grilling, spec/ticket flows, TDD, code review, domain modelling and more).",
       "category": "engineering",
       "keywords": [
         "engineering",

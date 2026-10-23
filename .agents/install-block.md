@@ -26,7 +26,7 @@ Nobody has run Auggie, Droid, Qwen or Goose against this repo, so they stay on s
 <canonical-block name="claude-code">
 
 ```bash
-claude plugin install mattpocock-skills@claude-plugins-official
+claude plugin install mattify-skills@claude-plugins-official
 ```
 
 Updates itself by default.
@@ -39,7 +39,7 @@ Updates itself by default.
 
 ```bash
 codex plugin marketplace add mattpocock/skills
-codex plugin add mattpocock-skills@mattpocock
+codex plugin add mattify-skills@mattpocock
 ```
 
 Updates itself at startup.
@@ -54,7 +54,7 @@ Use the marketplace, not `copilot plugin install mattpocock/skills`. Copilot has
 
 ```bash
 copilot plugin marketplace add mattpocock/skills
-copilot plugin install mattpocock-skills@mattpocock
+copilot plugin install mattify-skills@mattpocock
 ```
 
 Then, once, add to `~/.copilot/settings.json`:

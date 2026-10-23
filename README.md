@@ -8,11 +8,11 @@
   </a>
 </p>
 
-# Skills For Real Engineers
+# Mattify Skills
 
 [![skills.sh](https://skills.sh/b/mattpocock/skills)](https://skills.sh/mattpocock/skills)
 
-My agent skills that I use every day to do real engineering - not vibe coding.
+Agent skills for real engineering, not vibe coding.
 
 Developing real applications is hard. Approaches like GSD, BMAD, and Spec-Kit try to help by owning the process. But while doing so, they take away your control and make bugs in the process hard to resolve.
 
@@ -32,7 +32,7 @@ A plugin updates itself. [skills.sh](https://skills.sh/mattpocock/skills) copies
 <summary><strong>Claude Code</strong></summary>
 
 ```bash
-claude plugin install mattpocock-skills@claude-plugins-official
+claude plugin install mattify-skills@claude-plugins-official
 ```
 
 Updates itself by default.
@@ -44,7 +44,7 @@ Updates itself by default.
 
 ```bash
 codex plugin marketplace add mattpocock/skills
-codex plugin add mattpocock-skills@mattpocock
+codex plugin add mattify-skills@mattpocock
 ```
 
 Updates itself at startup.
@@ -56,7 +56,7 @@ Updates itself at startup.
 
 ```bash
 copilot plugin marketplace add mattpocock/skills
-copilot plugin install mattpocock-skills@mattpocock
+copilot plugin install mattify-skills@mattpocock
 ```
 
 Then, once, add to `~/.copilot/settings.json`:
