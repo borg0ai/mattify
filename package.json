@@ -2,10 +2,10 @@
   "name": "mattify-skills",
   "version": "1.3.1",
   "private": true,
-  "description": "Mattify Skills for real engineering",
+  "description": "Mattify Skills for RFC-first engineering: decision discovery, research, implementation, TDD, and code review",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mattpocock/skills"
+    "url": "https://github.com/borg0ai/mattify"
   },
   "license": "MIT",
   "scripts": {

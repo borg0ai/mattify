@@ -1,17 +1,16 @@
 ---
 name: implement
-description: "Implement a piece of work based on a spec or set of tickets."
+description: "Implement code from an Approved RFC in .spec. Use when the user asks to build or fix a change whose scope has been approved through /specify."
 disable-model-invocation: true
 ---
 
-Implement the work described by the user in the spec or tickets.
+Implement one change from an Approved RFC under `.spec/rfc/`.
 
-If the user passes a ticket reference, fetch it from the issue tracker and state its title before starting. If the reference is ambiguous, ask.
+1. Read the RFC and confirm its status is `Approved`. Treat its Design and Acceptance sections as the complete implementation scope. If no approved RFC covers the request, stop and use the host-installed `/specify` skill to create or update one.
+2. Use the host-installed `/specify` skill and its CLI for RFC status and task tracking. Never hand-edit Specify-managed status or task files when a command exists. Do not create implementation specs or tickets in an issue tracker.
+3. Confirm the intended files and behavior against the RFC. If a requirement, test seam, or dependency is undecided, return to `/specify` and resolve it before coding.
+4. Implement the approved behavior. Use `tdd` where tests fit the agreed behavior and seams. Run relevant checks, and report exactly which checks ran and their results.
+5. Run `code-review` against the originating RFC. Fix in-scope findings; send scope changes back through `/specify`.
+6. Update RFC task tracking and advance the RFC through the host-installed `/specify` workflow only when acceptance is met. Commit to the current branch if requested by the user or repository workflow.
 
-Call the Skill tool with "tdd" where possible, at pre-agreed seams.
-
-Run typechecking regularly, single test files regularly, and the full test suite once at the end.
-
-Once done, call the Skill tool with "code-review" to review the work.
-
-Commit your work to the current branch.
+An issue, PR, conversation, or ticket can provide evidence and context, but cannot expand implementation scope without an Approved RFC.

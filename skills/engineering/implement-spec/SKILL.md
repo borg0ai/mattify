@@ -1,40 +1,20 @@
 ---
 name: implement-spec
-description: "Implement the result of /to-spec and /to-tickets in code."
+description: "Implement a coordinated set of Approved child RFCs from .spec. Use when a multi-part change has an Approved umbrella RFC and approved child RFCs."
 disable-model-invocation: true
 ---
 
-You have been provided a spec. This spec should have tickets associated with it, describing how to implement the spec.
+Implement a multi-part change from its Approved umbrella RFC and Approved child RFCs in `.spec/rfc/`.
 
-The issue tracker should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
-
-The goal is the entire spec implemented on a single **integration branch**, with every ticket resolved the way the issue tracker closes work.
-
-The tickets are not a list of steps. They are a **task graph** with blocking relationships between them. This means there is always a **frontier** of tickets which are ready to be grabbed.
-
-Communication to and from subagents should be sparse. Communicate primarily through **context pointers**: to the spec, tickets, research notes, and previous commits. Don't duplicate information already available via pointers.
-
-**Implementer subagents** should be run in the background where possible for maximum concurrency.
+The umbrella RFC defines the destination and child RFCs define implementation scope. Issue tracker items may supply context, but they are not tasks or authority for implementation. Do not create, update, close, or publish implementation tickets as part of this skill.
 
 ## Steps
 
-1. Read the spec and tickets to understand the task graph.
+1. Read the umbrella RFC, its listed child RFCs, and Specify-managed task tracking. Use the host-installed `/specify` skill and its CLI for status and task lifecycle. Do not hand-edit managed status or task files when a command exists.
+2. Confirm each child RFC is `Approved`. If a needed child is missing or not approved, stop implementation for that scope and return to `/specify`.
+3. Follow explicit dependency and ordering decisions recorded in the RFCs. If order or dependencies are unresolved, ask `/specify` to resolve them; do not infer a parallel task graph from tracker tickets.
+4. Implement approved child RFCs one at a time on the current branch. Use `tdd` at the approved behavior seams. Run relevant checks and record truthful results.
+5. Review the combined changes with `code-review`, using the umbrella and child RFCs as scope. Fix in-scope findings; send new requirements to `/specify`.
+6. Use the host-installed `/specify` workflow to update task tracking and advance RFC statuses only after their acceptance criteria are met. Report completed RFCs and any remaining approved work.
 
-2. (optional) Use an **exploration subagent** to conduct any exploration required by the tickets - relevant codebase files or external documentation. Ensure the exploration subagent can save files - it should save its markdown notes in a directory outside the repo, accessible by all future subagents. This lets **implementer subagents** focus on implementation rather than exploration.
-
-3. Create the integration branch. If the issue tracker closes work through PRs, or the user asks for one, open a draft PR after the first merge in step 5 (a branch with no commits ahead of main can't open one), marked as closing the spec and tickets.
-
-4. Use **implementer subagents** to implement each ticket, each in its own worktree on its own branch. Each implementer subagent:
-   - confirms its worktree is based on the integration branch before starting, and resets onto it if not;
-   - calls the Skill tool with `tdd` to build the ticket;
-   - merges the integration branch tip into its own branch before reporting done
-
-5. Once an **implementer subagent** completes, merge its work to the integration branch with a **merger subagent**.
-
-6. If this changes the **frontier** of available tickets, kick off more **implementer subagents** to work on the new tickets. This allows for maximum concurrency.
-
-7. Once all tickets are complete, call the Skill tool with `code-review` on the integration branch. Fix all issues raised by the code review in a single **implementer subagent**.
-
-8. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.
-
-9. Clean up all **implementer subagent** worktrees.
+Do not create integration branches, worktrees, or pull requests unless the user or repository workflow explicitly requires them.

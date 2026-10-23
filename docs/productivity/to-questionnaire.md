@@ -12,10 +12,10 @@ Reach for it when a decision is blocked on knowledge that lives in one other per
 
 | The answers are in… | Reach for |
 | --- | --- |
-| Your own head, unsharpened | [grill-me](https://aihero.dev/skills-grill-me) |
-| The codebase | [grill-with-docs](https://aihero.dev/skills-grill-with-docs) |
+| Your own head, unsharpened | [grill-me](https://github.com/borg0ai/mattify/blob/main/skills/productivity/grill-me/SKILL.md) |
+| The codebase | [grill-with-docs](https://github.com/borg0ai/mattify/blob/main/skills/engineering/grill-with-docs/SKILL.md) |
 | Someone else's head | `to-questionnaire` |
-| Nobody's head yet, the question needs something to react to | [prototype](https://aihero.dev/skills-prototype) |
+| Nobody's head yet, the question needs something to react to | [prototype](https://github.com/borg0ai/mattify/blob/main/skills/engineering/prototype/SKILL.md) |
 
 The common case is a [grilling](https://www.aihero.dev/ai-coding-dictionary/grilling) session that stalls because some of the questions it raised aren't yours to answer. Run `/to-questionnaire` in that same conversation to take those questions offline, then bring the answers back and carry on.
 
@@ -26,7 +26,7 @@ The interview is two exchanges, and then it stops.
 - **Who is it going to?** Their role, their expertise, their relationship to you. This sets the tone and how much context the document has to carry. An outside client needs orienting; a teammate does not.
 - **What do you need back?** The concrete decisions or facts you can't resolve alone. This becomes the checklist for the finished document. Every item you name gets a question aimed at it.
 
-Everything after that is drafting. The skill writes the file to `to-questionnaire-<slug>.md` in the current directory. There is no setup, no workspace, and nothing to configure.
+Everything after that is drafting. The skill writes the file to `to-questionnaire-<slug>.md` in the current directory. For a software product, architecture, or behavior change, the document should say that answers return to this conversation and feed the host-installed `/specify` skill's RFC. It is input, not an issue spec or approval to implement. For unrelated topics, state the actual intended use without forcing an RFC. There is no setup, no workspace, and nothing to configure.
 
 ## The document
 
@@ -75,4 +75,4 @@ Yes, and plenty of people did before it existed: `OPEN_QUESTIONS.md` files, spre
 
 `to-questionnaire` is a reach-for-it-anytime standalone. You use it where your own knowledge ends and the next move is to ask another person, not to run another skill. That is most often mid-flow, when planning has stalled on something that isn't yours to decide.
 
-Its neighbour is [grill-me](https://aihero.dev/skills-grill-me), and the two differ on where the answers live. Grilling gets the answers from you; a questionnaire gets them from someone else. Feed what comes back into another grilling round, or into [grill-with-docs](https://aihero.dev/skills-grill-with-docs) or [to-spec](https://aihero.dev/skills-to-spec) if the work is heading for a build. When you're unsure which skill fits the moment, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.
+Its neighbour is [grill-me](https://github.com/borg0ai/mattify/blob/main/skills/productivity/grill-me/SKILL.md), and the two differ on where the answers live. Grilling gets the answers from you; a questionnaire gets them from someone else. Feed what comes back into another grilling round, or into [grill-with-docs](https://github.com/borg0ai/mattify/blob/main/skills/engineering/grill-with-docs/SKILL.md) and then the host-installed `/specify` skill if the work is a software product, architecture, or behavior change. When you're unsure which skill fits the moment, [ask-matt](https://github.com/borg0ai/mattify/blob/main/skills/engineering/ask-matt/SKILL.md) routes you.

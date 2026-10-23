@@ -14,6 +14,8 @@ Use this template for writing the PR body:
 ```markdown
 ## Summary
 
+RFC: <originating Approved RFC ID and path>
+
 <diagram, diff-sketch, or tree>
 
 ## Evidence
@@ -158,6 +160,8 @@ You may use one of these, you may use several, it is unlikely you will use all o
 ### Evidence
 
 Concrete evidence that the change works. Show a before and after.
+
+Name the originating Approved RFC in Summary. Describe only delivered scope from that RFC. If no Approved RFC exists, do not present the PR as ready for review; route the request through the host-installed `/specify` skill first.
 
 Screenshots are S-tier - when the environment is set up for it and the change is visual.
 

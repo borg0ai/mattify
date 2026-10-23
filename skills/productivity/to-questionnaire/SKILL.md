@@ -27,6 +27,8 @@ Frame the document as a **discovery questionnaire**: the user lacks context, the
 
 **From:** <the user>, **To:** <the recipient>, **How your answers will be used:** <where they go>
 
+For a questionnaire gathering missing input on a software product, architecture, or behavior change, explain that answers return to this conversation and then feed the host-installed `/specify` skill's RFC. The questionnaire is input, not an issue spec or approval to implement. For unrelated topics, describe the actual intended use without forcing an RFC.
+
 ## Context
 
 One paragraph orienting a recipient who wasn't in the user's head. Enough to answer well, not a page.

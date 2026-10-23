@@ -1,5 +1,5 @@
 interface:
   display_name: "To Spec"
-  short_description: "Turn a conversation into a spec"
+  short_description: "Delegate RFC creation to host-installed /specify"
 policy:
   allow_implicit_invocation: false

@@ -11,8 +11,8 @@ Claude Code installs from its official marketplace, `claude-plugins-official`. E
 | Agent         | Route                            | Updates itself?                                                  |
 | ------------- | -------------------------------- | ---------------------------------------------------------------- |
 | Claude Code   | `@claude-plugins-official`       | Yes, by default                                                  |
-| Codex         | `@mattpocock` marketplace        | Yes, at startup, by default                                      |
-| Copilot CLI   | `@mattpocock` marketplace        | Yes, after a one-time `autoUpdate: true`                         |
+| Codex         | `@mattify` marketplace           | Yes, at startup, by default                                      |
+| Copilot CLI   | `@mattify` marketplace           | Yes, after a one-time `autoUpdate: true`                         |
 | VS Code       | Chat: Install Plugin From Source | Yes, daily, by default                                           |
 | Gemini CLI    | `gemini skills install` (copies) | No. A Gemini extension would need a flat `skills/<name>/` layout |
 | Everyone else | skills.sh                        | No. Run `npx skills update`, and re-run `add` for new skills     |
@@ -38,8 +38,8 @@ Updates itself by default.
 <canonical-block name="codex">
 
 ```bash
-codex plugin marketplace add mattpocock/skills
-codex plugin add mattify-skills@mattpocock
+codex plugin marketplace add borg0ai/mattify
+codex plugin add mattify-skills@mattify
 ```
 
 Updates itself at startup.
@@ -48,13 +48,13 @@ Updates itself at startup.
 
 ## GitHub Copilot (CLI and VS Code)
 
-Use the marketplace, not `copilot plugin install mattpocock/skills`. Copilot has deprecated direct repo installs, and they can't auto-update. The `extraKnownMarketplaces` entry follows the documented schema, but nobody has run it yet.
+Use the marketplace, not `copilot plugin install borg0ai/mattify`. Copilot has deprecated direct repo installs, and they can't auto-update. The `extraKnownMarketplaces` entry follows the documented schema, but nobody has run it yet.
 
 <canonical-block name="copilot">
 
 ```bash
-copilot plugin marketplace add mattpocock/skills
-copilot plugin install mattify-skills@mattpocock
+copilot plugin marketplace add borg0ai/mattify
+copilot plugin install mattify-skills@mattify
 ```
 
 Then, once, add to `~/.copilot/settings.json`:
@@ -62,12 +62,12 @@ Then, once, add to `~/.copilot/settings.json`:
 ```json
 {
   "extraKnownMarketplaces": {
-    "mattpocock": { "source": { "source": "github", "repo": "mattpocock/skills" }, "autoUpdate": true }
+    "mattify": { "source": { "source": "github", "repo": "borg0ai/mattify" }, "autoUpdate": true }
   }
 }
 ```
 
-In VS Code, run **Chat: Install Plugin From Source** and enter `https://github.com/mattpocock/skills`. It updates daily.
+In VS Code, run **Chat: Install Plugin From Source** and enter `https://github.com/borg0ai/mattify`. It updates daily.
 
 </canonical-block>
 
@@ -78,8 +78,8 @@ Gemini doesn't read `.claude-plugin`, and `--path` takes one bucket. One install
 <canonical-block name="gemini">
 
 ```bash
-gemini skills install https://github.com/mattpocock/skills.git --path skills/engineering
-gemini skills install https://github.com/mattpocock/skills.git --path skills/productivity
+gemini skills install https://github.com/borg0ai/mattify.git --path skills/engineering
+gemini skills install https://github.com/borg0ai/mattify.git --path skills/productivity
 ```
 
 Re-run both commands to update.
@@ -93,10 +93,10 @@ Re-run both commands to update.
 <canonical-block name="other-agents">
 
 ```bash
-npx skills@latest add mattpocock/skills -a <agent>  # cursor, opencode, devin, windsurf, amp, pi; omit -a to choose
+npx skills@latest add borg0ai/mattify -a <agent>  # cursor, opencode, devin, windsurf, amp, pi; omit -a to choose
 ```
 
-When the installer asks which skills to take, include `setup-matt-pocock-skills`. To update, run `npx skills@latest update`, and re-run `add` to pick up new skills.
+When the installer asks which skills to take, include `setup-mattify-skills`. To update, run `npx skills@latest update`, and re-run `add` to pick up new skills.
 
 </canonical-block>
 
@@ -105,7 +105,7 @@ Use the single-skill form wherever one skill is named on its own. `docs/` pages 
 <canonical-block name="skills-sh-one-skill">
 
 ```bash
-npx skills@latest add mattpocock/skills --skill=<name>
+npx skills@latest add borg0ai/mattify --skill=<name>
 ```
 
 ```bash
