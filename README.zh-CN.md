@@ -1,5 +1,3 @@
-[![Mattify Skills](https://res.cloudinary.com/total-typescript/image/upload/v1777382277/skill-repo-light_2x.png)](https://github.com/borg0ai/mattify)
-
 # Mattify Skills
 
 [English](./README.md) | 简体中文
