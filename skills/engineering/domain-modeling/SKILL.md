@@ -1,11 +1,11 @@
 ---
 name: domain-modeling
-description: Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR.
+description: Build and sharpen a project's domain model. Use when discussing codebase terminology or writing or editing a GLOSSARY.md; route software product, architecture, and behavior proposals through /specify RFCs.
 ---
 
 # Domain Modeling
 
-Actively build and sharpen the project's domain model as you design. This is the *active* discipline: challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise. (Merely *reading* `GLOSSARY.md` for vocabulary is not this skill: that's a one-line habit any skill can do. This skill is for when you're changing the model, not just consuming it.)
+Actively build and sharpen the project's domain model as you design. This is the *active* discipline: challenging terms, inventing edge-case scenarios, and writing resolved vocabulary down as it crystallises. Proposed product, architecture, and behavior decisions go through `/specify` as an RFC; a separate implementation ADR can follow RFC approval when it meets the bar below. (Merely *reading* `GLOSSARY.md` for vocabulary is not this skill: that's a one-line habit any skill can do. This skill is for when you're changing the model, not just consuming it.)
 
 ## File structure
 
@@ -37,7 +37,7 @@ If a `GLOSSARY-MAP.md` exists at the root, the repo has multiple contexts. The m
 │       └── docs/adr/
 ```
 
-Create files lazily: only when you have something to write. If no `GLOSSARY.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+Create files lazily: only when you have something to write. If no `GLOSSARY.md` exists, create one when the first term is resolved. Do not create an ADR to record a proposed product, architecture, or behavior change; route that proposal through `/specify` and its RFC. Existing ADRs remain useful context. After an RFC is approved, an ADR may record a separate durable implementation decision when the project uses ADRs.
 
 ## During the session
 
@@ -63,12 +63,6 @@ When a term is resolved, update `GLOSSARY.md` right there. Don't batch these up:
 
 `GLOSSARY.md` should be totally devoid of implementation details. Do not treat `GLOSSARY.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
 
-### Offer ADRs sparingly
+### Keep proposal and implementation records separate
 
-Only offer to create an ADR when all three are true:
-
-1. **Hard to reverse**: the cost of changing your mind later is meaningful
-2. **Surprising without context**: a future reader will wonder "why did they do it this way?"
-3. **The result of a real trade-off**: there were genuine alternatives and you picked one for specific reasons
-
-If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
+Use the host-installed `/specify` skill to create an RFC for proposed product, architecture, or behavior changes. Do not create issue specs or ADRs as substitutes. Once an RFC is approved, an ADR can document a distinct implementation trade-off if all three conditions hold: it is hard to reverse, surprising without context, and resulted from a real choice among alternatives. Use [ADR-FORMAT.md](./ADR-FORMAT.md) for that post-approval record.

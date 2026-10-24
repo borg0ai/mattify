@@ -1,0 +1,5 @@
+interface:
+  display_name: "Set Up Mattify Skills"
+  short_description: "Prepare a repo for RFCs"
+policy:
+  allow_implicit_invocation: false

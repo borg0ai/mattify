@@ -13,8 +13,8 @@ Reach for it as soon as you have an idea worth taking seriously (a feature, a pr
 Which of the three grilling skills you want depends on what is in front of you:
 
 - **Anything, anywhere.** Use `grill-me`. It needs no repo and writes no files, and the subject doesn't have to be code.
-- **A codebase to align against.** Use [grill-with-docs](https://aihero.dev/skills-grill-with-docs). It is the same interview, but [stateful](https://www.aihero.dev/ai-coding-dictionary/stateful): it reads your code and keeps what it learns in `GLOSSARY.md` and ADRs.
-- **Too big for one session.** Use [wayfinder](https://aihero.dev/skills-wayfinder). It charts the effort as a map and runs grilling sessions inside it.
+- **A software change to align against a codebase.** Use [grill-with-docs](https://github.com/borg0ai/mattify/blob/main/skills/engineering/grill-with-docs/SKILL.md). It is the same interview, but [stateful](https://www.aihero.dev/ai-coding-dictionary/stateful): it reads your code and keeps resolved vocabulary in `GLOSSARY.md`.
+- **Too big for one session.** Use [wayfinder](https://github.com/borg0ai/mattify/blob/main/skills/engineering/wayfinder/SKILL.md). It charts the effort as a map and runs grilling sessions inside it.
 
 Leave [plan mode](https://www.aihero.dev/ai-coding-dictionary/agent-mode) off. Plan mode makes the agent hurry to produce a plan, when you want it to keep asking questions.
 
@@ -32,16 +32,9 @@ The opposite error is real but rarer: staying in the interview so long you never
 
 Some questions can be answered by talking. Others can't, and no amount of grilling will get you there.
 
-"One long form or three pages?" and "how should this interaction feel?" are **ungrillable**. You need something to react to before you can answer them. When you hit one, stop grilling. Build the throwaway version with [prototype](https://aihero.dev/skills-prototype), look at it, then come back and answer in one line.
+"One long form or three pages?" and "how should this interaction feel?" are **ungrillable**. You need something to react to before you can answer them. When you hit one, stop grilling. Build the throwaway version with [prototype](https://github.com/borg0ai/mattify/blob/main/skills/engineering/prototype/SKILL.md), look at it, then come back and answer in one line.
 
 Sessions grow too long when you try to talk through an ungrillable question. The agent keeps rephrasing, you keep guessing, and the scope grows with the uncertainty.
-
-## It's working if
-
-- You disagree with something. A session with no pushback from you is a session you didn't need.
-- Questions arrive in a few rounds, not one at a time for a long time, and later rounds clearly build on what you said earlier.
-- You end up somewhere you didn't expect, because a question showed you a decision you had been making without noticing.
-- At the end you could defend each choice to someone who wasn't there.
 
 ## Common questions
 
@@ -61,16 +54,23 @@ When grilling, ask one question at a time.
 **What if I genuinely don't know the answer?**
 Say so. "I don't know" is a real answer, and a question you can't answer is usually a sign to prototype rather than to guess.
 
-**Do I start a fresh session before writing the spec?**
-No. The value of the session is the [context](https://www.aihero.dev/ai-coding-dictionary/context) you just built. Hand the same conversation straight to [to-spec](https://aihero.dev/skills-to-spec).
+**Do I start a fresh session before creating an RFC?**
+No. Keep the [context](https://www.aihero.dev/ai-coding-dictionary/context) you just built and invoke the host-installed `/specify` skill in the same conversation. For a software product, architecture, or behavior change, it creates an RFC from the confirmed decisions. Other topics can end with the conversation.
 
 **Does the model matter?**
 More than for most skills. Grilling depends on the [model](https://www.aihero.dev/ai-coding-dictionary/model)'s own knowledge of how systems break, so use your best one. Implementation mostly follows context, so a cheaper model is fine there.
+
+## It's working if
+
+- You disagree with something. A session with no pushback from you is a session you didn't need.
+- Questions arrive in a few rounds, not one at a time for a long time, and later rounds clearly build on what you said earlier.
+- You end up somewhere you didn't expect, because a question showed you a decision you had been making without noticing.
+- At the end you could defend each choice to someone who wasn't there.
 
 ## Where it fits
 
 `grill-me` is a **standalone you can run anywhere, on anything**. Because it is stateless, it is portable. It needs no repo, workspace, or setup, and does not assume the idea is about software. People use it for business decisions, for writing, and for what to do next: anything they cannot think through clearly on their own.
 
-Portability is the only difference from [grill-with-docs](https://aihero.dev/skills-grill-with-docs). That skill runs the same interview, but reads a codebase to align against and records what it learns as `GLOSSARY.md` and ADRs. Both use the [grilling](https://aihero.dev/skills-grilling) skill underneath. `grill-me` is the user-invoked entry point that keeps no state.
+Portability is the only difference from [grill-with-docs](https://github.com/borg0ai/mattify/blob/main/skills/engineering/grill-with-docs/SKILL.md). That skill runs the same interview, but reads a codebase to align against and records resolved vocabulary in `GLOSSARY.md`. Both use the [grilling](https://github.com/borg0ai/mattify/blob/main/skills/productivity/grilling/SKILL.md) skill underneath. `grill-me` is the user-invoked entry point that keeps no state.
 
-If what you grilled does turn out to be software, you can hand the same conversation to [to-spec](https://aihero.dev/skills-to-spec) and carry on into the build flow (an option, not the point of the skill). When you're unsure which flow fits, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.
+If what you grilled turns out to be a software product, architecture, or behavior change, hand the same conversation to the host-installed `/specify` skill to create an RFC. This is an optional handoff; unrelated topics remain standalone. When unsure which flow fits, [ask-matt](https://github.com/borg0ai/mattify/blob/main/skills/engineering/ask-matt/SKILL.md) routes you.

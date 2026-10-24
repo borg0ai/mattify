@@ -11,6 +11,8 @@ Design **deep modules**: a lot of behaviour behind a small interface, placed at 
 
 Use these terms exactly: don't substitute "component," "service," "API," or "boundary." Consistent language is the whole point.
 
+This skill supplies vocabulary, not approval to change code. For a proposed software product, architecture, or behavior change, use the host-installed `/specify` skill to create an RFC before implementation. Keep this reference usable for terminology questions and unrelated design discussion without forcing an RFC.
+
 **Module**: anything with an interface and an implementation. Deliberately scale-agnostic: a function, class, package, or tier-spanning slice. _Avoid_: unit, component, service.
 
 **Interface**: everything a caller must know to use the module correctly: the type signature, but also invariants, ordering constraints, error modes, required configuration, and performance characteristics. _Avoid_: API, signature (too narrow, they refer only to the type-level surface).

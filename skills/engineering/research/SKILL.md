@@ -10,3 +10,5 @@ Its job:
 1. Investigate the question against **primary sources** (official docs, source code, specs, first-party APIs), not a secondary write-up of them. Follow every claim back to the source that owns it.
 2. Write the findings to a single Markdown file, citing each claim's source.
 3. Save it where the repo already keeps such notes; match the existing convention, and if there is none, put it somewhere sensible and say where.
+
+When research supports a proposed software product, architecture, or behavior change, preserve the citations and findings as evidence for the host-installed `/specify` skill to incorporate into its RFC. Do not turn findings into an issue spec or treat a research note as approval to implement. For standalone research unrelated to a software change, keep the findings note as the complete deliverable.

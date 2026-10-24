@@ -14,9 +14,10 @@ Reach for it when the *words* are the problem:
 | --- | --- |
 | Two people mean different things by "cancellation" | `domain-modeling`: pick the canonical term, list the other under `_Avoid_` |
 | "Account" is doing three jobs in three files | `domain-modeling`: split it into Customer and User |
-| You just made a hard-to-reverse architectural choice | `domain-modeling`: it offers an ADR, if the choice clears the bar |
-| The module's *shape* is the problem: where the seam goes, how deep the interface is | [codebase-design](https://aihero.dev/skills-codebase-design) |
-| You want the whole plan interrogated before you build | [grill-with-docs](https://aihero.dev/skills-grill-with-docs), which drives this skill underneath |
+| You are shaping a product, architecture, or behavior change | Use `/specify` to record the proposal in an RFC after decisions are confirmed |
+| An approved RFC leaves a separate durable implementation trade-off | Record an ADR only if the project uses ADRs and the choice clears its bar |
+| The module's *shape* is the problem: where the seam goes, how deep the interface is | [codebase-design](https://github.com/borg0ai/mattify/blob/main/skills/engineering/codebase-design/SKILL.md) |
+| You want the whole plan interrogated before you build | [grill-with-docs](https://github.com/borg0ai/mattify/blob/main/skills/engineering/grill-with-docs/SKILL.md), which drives this skill underneath |
 | You want a term looked up, not changed | Nothing. Read `GLOSSARY.md`. It is a file. |
 
 ## Prerequisites
@@ -24,7 +25,7 @@ Reach for it when the *words* are the problem:
 None up front. The skill writes into two places and creates both lazily:
 
 - **`GLOSSARY.md`** at the repo root. The skill creates it when you settle the first term. In a repo with a `GLOSSARY-MAP.md` at the root, terms go into the per-context `GLOSSARY.md` the map points at instead.
-- **`docs/adr/`**. The skill creates it with the first ADR that clears the bar.
+- **`docs/adr/`**. Existing ADRs provide context. After an RFC is approved, the skill may help record a separate implementation decision if the project uses ADRs and the choice clears the bar.
 
 Nothing needs to exist before you start, and the skill creates nothing in advance.
 
@@ -36,10 +37,10 @@ The glossary and the ADR have different bars. Most of the trouble with this skil
 | --- | --- | --- |
 | Holds | Terms. What a thing **is**, in one or two sentences, with rejected synonyms under `_Avoid_` | One decision, in one to three sentences: context, choice, reason |
 | Bar to write | A vague term became canonical | **All three**: hard to reverse, surprising without context, the result of a real trade-off |
-| Written | Inline, the moment the term is settled | Offered, not assumed |
+| Written | Inline, the moment the term is settled | Only after RFC approval, and only for a separate implementation choice |
 | Never holds | Implementation details, a [spec](https://www.aihero.dev/ai-coding-dictionary/spec), a scratch pad, general programming concepts | A diary of every choice made this session |
 
-Miss any one of the ADR's three tests and there is no ADR. An easily-reversed decision will just get reversed; an unsurprising one is nobody's question; one with no real alternative records that you did the obvious thing.
+Miss any one of the ADR's three tests and there is no ADR. A proposed product, architecture, or behavior change belongs in a `/specify` RFC, not an ADR; the ADR records a distinct implementation trade-off only after RFC approval.
 
 The `GLOSSARY.md` rule matters most, because it is the one that breaks in practice. **It is a glossary and nothing else.** Left unchecked, models treat "write to `GLOSSARY.md`" as permission to persist every answer you give, and the file turns into a running spec. This is the most-reported problem with the skill, across several models.
 
@@ -76,11 +77,11 @@ No, and there is no plan for a skill that does. A domain language you do not und
 
 - It stops you mid-sentence to ask which of two things you meant, instead of picking one and moving on.
 - `GLOSSARY.md` changes **during** the conversation, not in a burst at the end.
-- It refuses to write an ADR for something you could undo tomorrow, and says which of the three tests failed.
+- It routes proposed product, architecture, and behavior changes to `/specify` for an RFC, not to an ADR.
 - New entries define what a thing *is* in one or two sentences and name the words you are giving up under `_Avoid_`.
 - It quotes your code back at you when your code and your sentence disagree.
 - `GLOSSARY.md` gets shorter as often as it gets longer.
 
 ## Where it fits
 
-`domain-modeling` is a **model-invoked reference** that runs *underneath* other skills more often than it runs on its own. [grill-with-docs](https://aihero.dev/skills-grill-with-docs) drives it through a grilling session, [wayfinder](https://aihero.dev/skills-wayfinder) loads it while charting a map, [triage](https://aihero.dev/skills-triage) uses it to keep [tickets](https://www.aihero.dev/ai-coding-dictionary/ticket) in the project's own words, and [improve-codebase-architecture](https://aihero.dev/skills-improve-codebase-architecture) calls it as decisions settle. Its closest sibling is [codebase-design](https://aihero.dev/skills-codebase-design). Together they are the vocabulary layer under everything else, this one for the *domain*, that one for the module's *shape*. It is also reachable directly, when you want the discipline without committing to the steps of whatever skill would normally load it. When you are unsure which skill fits, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.
+`domain-modeling` is a **model-invoked reference** that runs *underneath* other skills more often than it runs on its own. [grill-with-docs](https://github.com/borg0ai/mattify/blob/main/skills/engineering/grill-with-docs/SKILL.md) drives it through a grilling session, and [improve-codebase-architecture](https://github.com/borg0ai/mattify/blob/main/skills/engineering/improve-codebase-architecture/SKILL.md) calls it as decisions settle. Confirmed product, architecture, and behavior proposals then go to `/specify` for an RFC. Its closest sibling is [codebase-design](https://github.com/borg0ai/mattify/blob/main/skills/engineering/codebase-design/SKILL.md). Together they are the vocabulary layer under other work, this one for the *domain*, that one for the module's *shape*. It is also reachable directly for terminology and glossary work. When you are unsure which skill fits, [ask-matt](https://github.com/borg0ai/mattify/blob/main/skills/engineering/ask-matt/SKILL.md) routes you.
